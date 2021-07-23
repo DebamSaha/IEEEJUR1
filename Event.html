@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IEEE JU</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+  </head>
+  <body>
+
+    <header>
+      <a href="index.html" class="brand">IEEEJU</a>
+      <div class="menu-btn"></div>
+      <div class="navigation">
+        <div class="navigation-items">
+          <a href="index.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="Event.html">Events</a>
+          <a href="Contact.html">Contact Us</a>
+        </div>
+      </div>
+    </header>
+
+    <section class="home">
+      <video class="video-slide active" src="5V.mp4" autoplay muted loop></video>
+      <div class="content active">
+        <h1>About Event</h1>
+      </div>
+      <div class="media-icons">
+        <a href="https://www.facebook.com/IEEE-Jadavpur-University-Student-Branch-237752819604800"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.instagram.com/_ieeeju/"><i class="fab fa-instagram"></i></a>
+        <a href="https://twitter.com/?lang=en"><i class="fab fa-twitter"></i></a>
+      </div>
+      <section class="carousel">
+        <div class="reel">
+
+            <article>
+                    <p> <span> <i style="font-size:35px" class="fa">&#128187;</i> </span> <h3> Online Based Platform </h3> </p>
+                    <p>Full Online Mode Workshop or Competition.</p>
+            </article>
+
+            <article>
+                <p> <span> <i style="font-size:35px" class="fa">&#129504;</i> </span> <h3> Brain Storming Sessions </h3> </p>
+                <p> Brain Stroming Session by Industry Experts. </p>
+            </article>
+
+            <article>
+                <p> <span> <i style="font-size:35px" class="fa">&#127942;</i> </span> <h3> Sessional Compititions </h3> </p>
+                <p>Sessional Competition which make a student better.</p>
+            </article>
+        </div>
+            <div class="buttons">
+                <buttons type="button" class="button" onClick="alert()"> Online Registration </buttons>
+                <buttons type="button" class="button two" onClick="alert()"> Offline Registration </buttons>
+              </div>
+             
+    </section>
+      <div class="content active">
+            &copy; All rights reserved.Design IEEEJU Student Branch
+    </div>
+    </section>
+
+    
+
+    <script type="text/javascript">
+    //Javacript for responsive navigation menu
+    const menuBtn = document.querySelector(".menu-btn");
+    const navigation = document.querySelector(".navigation");
+
+    menuBtn.addEventListener("click", () => {
+      menuBtn.classList.toggle("active");
+      navigation.classList.toggle("active");
+    });
+
+    //Javacript for video slider navigation
+    const btns = document.querySelectorAll(".nav-btn");
+    const slides = document.querySelectorAll(".video-slide");
+    const contents = document.querySelectorAll(".content");
+
+    var sliderNav = function(manual){
+      btns.forEach((btn) => {
+        btn.classList.remove("active");
+      });
+
+      slides.forEach((slide) => {
+        slide.classList.remove("active");
+      });
+
+      contents.forEach((content) => {
+        content.classList.remove("active");
+      });
+
+      btns[manual].classList.add("active");
+      slides[manual].classList.add("active");
+      contents[manual].classList.add("active");
+    }
+
+    btns.forEach((btn, i) => {
+      btn.addEventListener("click", () => {
+        sliderNav(i);
+      });
+    });
+    let buttons = document.querySelectorAll(".button");
+
+for (var i = 0; i < buttons.length; i++) {
+  buttons[i].addEventListener("click", (e)=>{
+    e.preventDefault(); // preventing form submitting
+
+    let overlay = document.createElement('span'); //creating a tag(span)
+    overlay.classList.add("overlay"); //adding a class inside the span
+    e.target.appendChild(overlay); //adding overlay tag inside the anchor tag at in HTML
+
+    let xValue = e.clientX - e.target.offsetLeft; //by this we get perfect value where we will click
+    let yValue = e.clientY - e.target.offsetTop; //by this we get perfect value where we will click
+
+     overlay.style.left = xValue + "px"; //changing the position of the overlay according to our clicks on the button
+     overlay.style.top = yValue + "px"; //changing the position of the overlay according to our clicks on the button
+});
+}
+
+
+    </script>
+
+  </body>
+</html>
+      
